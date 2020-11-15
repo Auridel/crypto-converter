@@ -15,7 +15,7 @@ const App = ({data, loaded}) => {
 
     return (
         <div className="container">
-            <CryptoTable/>
+            <CryptoTable data={data}/>
             <CryptoConvert/>
         </div>
     )

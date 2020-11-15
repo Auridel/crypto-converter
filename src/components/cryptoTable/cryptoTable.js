@@ -2,8 +2,11 @@ import React from "react";
 
 import "./cryptoTable.scss";
 
-const CryptoTable = () => {
+const CryptoTable = ({data}) => {
+
+
     return (
+        data?
         <table className="crypto-table">
             <thead>
                 <tr className="crypto-table__row">
@@ -14,14 +17,16 @@ const CryptoTable = () => {
                 </tr>
             </thead>
             <tbody>
-                <tr className="crypto-table__row">
-                    <td className="crypto-table__data"><img className="crypto__icon" src="https://www.cryptocompare.com/media/19633/btc.png" alt="crypto"/></td>
-                    <td className="crypto-table__data">BTC</td>
-                    <td className="crypto-table__data">Bitcoin</td>
-                    <td className="crypto-table__data">15900.82</td>
-                </tr>
+            {data.map(item =>
+                <tr key={item.CoinInfo.Id} className="crypto-table__row">
+                    <td className="crypto-table__data"><img className="crypto__icon" src={`https://www.cryptocompare.com/${item.CoinInfo.ImageUrl}`} alt="crypto"/></td>
+                    <td className="crypto-table__data">{item.CoinInfo.Name}</td>
+                    <td className="crypto-table__data">{item.CoinInfo.FullName}</td>
+                    <td className="crypto-table__data">{item.RAW.USD.PRICE}</td>
+                </tr>)}
             </tbody>
         </table>
+            : ""
     )
 };
 

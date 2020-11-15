@@ -1,6 +1,8 @@
 const initialState = {
     data: [],
-    loaded: false
+    loaded: false,
+    first: null,
+    second: null
 }
 
 const reducer = (state = initialState, action) => {
@@ -10,6 +12,18 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 loaded: true,
                 data: action.payload
+            }
+        }
+        case "SET_FIRST": {
+            return {
+                ...state,
+                first: action.payload
+            }
+        }
+        case "SET_SECOND": {
+            return {
+                ...state,
+                second: action.payload
             }
         }
         default: return state;
