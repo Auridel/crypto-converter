@@ -1,0 +1,29 @@
+.crypto-table{
+  margin-right: 20px;
+  margin-bottom: 20px;
+
+  border-collapse: collapse;
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 18px;
+}
+.crypto-table__row{
+  border-bottom: 1px solid #c2c2c2;
+
+  &:hover{
+    background-color: #fafafa;
+  }
+}
+.crypto-table__data{
+  padding: 10px 20px;
+
+  &:nth-child(2n){
+    background-color: #f1f1f1;
+  }
+}
+.head{
+  font-weight: 500;
+}
+.crypto__icon{
+  width: 20px;
+}

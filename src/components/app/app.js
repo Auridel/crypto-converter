@@ -1,6 +1,8 @@
 import React from "react";
-import CryptoTable from "../cryptoConvert/cryptoTable";
-import CryptoConvert from "../cryptoTable/cryptoConvert";
+import CryptoTable from "../cryptoTable/cryptoTable";
+import CryptoConvert from "../cryptoConvert/cryptoConvert";
+
+import "./app.scss";
 
 const App = () => {
     return (
