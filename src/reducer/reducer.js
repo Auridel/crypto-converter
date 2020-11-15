@@ -5,6 +5,13 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
+        case "PUT_DATA": {
+            return {
+                ...state,
+                loaded: true,
+                data: action.payload
+            }
+        }
         default: return state;
     }
 }
