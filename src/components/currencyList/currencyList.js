@@ -4,7 +4,7 @@ import {SET_FIRST, SET_SECOND} from "../../actions/actions";
 
 import "./currencyList.scss";
 
-const CurrencyList = ({trigger, value, data, label}) => {
+const CurrencyList = ({trigger, setCurrency, data, label}) => {
     const dispatch = useDispatch();
 
     const setData = (data) => {
@@ -25,8 +25,8 @@ const CurrencyList = ({trigger, value, data, label}) => {
         <ul className="currency-list">
             <li
                 onClick={() => {
-                    value("USD");
-                    setData(null);
+                    setCurrency("USD");
+                    setData("USD");
                     trigger(false);
                 }}
                 className="currency-list__item">USD</li>
@@ -34,8 +34,8 @@ const CurrencyList = ({trigger, value, data, label}) => {
             <li
                 key={item.CoinInfo.Id}
                 onClick={() => {
-                    value(item.CoinInfo.Name);
-                    setData(item.CoinInfo.Id);
+                    setCurrency(item.CoinInfo.Name);
+                    setData(item.CoinInfo.Name);
                     trigger(false);
                 }}
                 className="currency-list__item">{item.CoinInfo.Name}</li>

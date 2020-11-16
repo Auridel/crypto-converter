@@ -1,8 +1,8 @@
 const initialState = {
     data: [],
     loaded: false,
-    first: null,
-    second: null
+    first: "USD",
+    second: "USD"
 }
 
 const reducer = (state = initialState, action) => {
