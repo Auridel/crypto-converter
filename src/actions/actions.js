@@ -11,17 +11,17 @@ const PUT_DATA = (data) => {
     }
 }
 
-const SET_FIRST = (id) => {
+const SET_FIRST = (cur) => {
     return {
         type: "SET_FIRST",
-        payload: id
+        payload: cur
     }
 }
 
-const SET_SECOND = (id) => {
+const SET_SECOND = (cur) => {
     return {
         type: "SET_SECOND",
-        payload: id
+        payload: cur
     }
 }
 

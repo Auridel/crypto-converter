@@ -1,11 +1,24 @@
-import React from "react";
+import React,  {useEffect, useRef} from "react";
 import {connect, useDispatch} from "react-redux";
 import {SET_FIRST, SET_SECOND} from "../../actions/actions";
 
 import "./currencyList.scss";
 
-const CurrencyList = ({trigger, setCurrency, data, label}) => {
+const CurrencyList = ({trigger, data, label}) => {
     const dispatch = useDispatch();
+    const listRef = useRef();
+
+    useEffect(() => {
+        document.addEventListener("click", handleClick);
+        return () => {
+            document.removeEventListener("click", handleClick);
+        }
+    })
+
+    const handleClick = (e) => {
+        const node = listRef.current;
+        if(!node || !node.contains(e.target)) trigger(false);
+    }
 
     const setData = (data) => {
         switch (label) {
@@ -22,10 +35,9 @@ const CurrencyList = ({trigger, setCurrency, data, label}) => {
     }
 
     return (
-        <ul className="currency-list">
+        <ul ref={listRef} className="currency-list">
             <li
                 onClick={() => {
-                    setCurrency("USD");
                     setData("USD");
                     trigger(false);
                 }}
@@ -34,7 +46,6 @@ const CurrencyList = ({trigger, setCurrency, data, label}) => {
             <li
                 key={item.CoinInfo.Id}
                 onClick={() => {
-                    setCurrency(item.CoinInfo.Name);
                     setData(item.CoinInfo.Name);
                     trigger(false);
                 }}

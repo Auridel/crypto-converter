@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
 import {connect, useDispatch} from "react-redux";
-import {ASK_DATA} from "../../actions/actions";
+import {ASK_DATA, SET_SECOND} from "../../actions/actions";
 import CryptoTable from "../cryptoTable/cryptoTable";
 import CryptoConvert from "../cryptoConvert/cryptoConvert";
 
@@ -13,9 +13,15 @@ const App = ({data, loaded}) => {
         if(!loaded) dispatch(ASK_DATA());
     })
 
+    const changeCurrency = (cur) => {
+        dispatch(SET_SECOND(cur));
+    }
+
     return (
         <div className="container">
-            <CryptoTable data={data}/>
+            <CryptoTable
+                changeCurrency={changeCurrency}
+                data={data}/>
             <CryptoConvert/>
         </div>
     )

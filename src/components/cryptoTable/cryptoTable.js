@@ -2,7 +2,7 @@ import React from "react";
 
 import "./cryptoTable.scss";
 
-const CryptoTable = ({data}) => {
+const CryptoTable = ({data, changeCurrency}) => {
 
 
     return (
@@ -18,7 +18,9 @@ const CryptoTable = ({data}) => {
             </thead>
             <tbody>
             {data.map(item =>
-                <tr key={item.CoinInfo.Id} className="crypto-table__row">
+                <tr
+                    onClick={() => changeCurrency(item.CoinInfo.Name)}
+                    key={item.CoinInfo.Id} className="crypto-table__row">
                     <td className="crypto-table__data"><img className="crypto__icon" src={`https://www.cryptocompare.com/${item.CoinInfo.ImageUrl}`} alt="crypto"/></td>
                     <td className="crypto-table__data">{item.CoinInfo.Name}</td>
                     <td className="crypto-table__data">{item.CoinInfo.FullName}</td>

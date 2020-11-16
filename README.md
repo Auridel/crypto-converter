@@ -1,3 +1,3 @@
-#Simple Currency Converter
+# Simple Currency Converter
 
 Stack: React+Redux+Saga

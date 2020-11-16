@@ -3,8 +3,8 @@ import React, {useState, useEffect} from "react";
 import "./convertBlock.scss";
 import CurrencyList from "../currencyList/currencyList";
 
-const ConvertBlock = ({label, value, setter, convert}) => {
-    const [currency, setCurrency] = useState("USD");
+const ConvertBlock = ({label, value, setter, convert, currency}) => {
+    // const [currency, setCurrency] = useState("USD");
     const [editable, setEditable] = useState(false);
 
     useEffect(() => {
@@ -26,7 +26,7 @@ const ConvertBlock = ({label, value, setter, convert}) => {
             <button
                 onClick={() => setEditable(!editable)}
                 className="convert__currency">{currency}</button>
-            {editable? <CurrencyList label={label} trigger={setEditable} setCurrency={setCurrency}/> : ""}
+            {editable? <CurrencyList label={label} trigger={setEditable}/> : ""}
         </div>
     )
 }

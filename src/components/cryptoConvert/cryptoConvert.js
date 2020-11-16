@@ -21,7 +21,7 @@ const CryptoConvert = ({data, firstCur, secondCur}) => {
                 break
             }
             case "first:currency_change" :{
-                setFirst( (+second * usdPriceSecond) / usdPriceFirst);
+                setSecond((+first * usdPriceFirst) / usdPriceSecond);
                 break;
             }
             case "second:currency_change" :{
@@ -35,8 +35,8 @@ const CryptoConvert = ({data, firstCur, secondCur}) => {
 
     return (
         <div className="convert">
-            <ConvertBlock convert={convert} value={first} setter={setFirst} label="first"/>
-            <ConvertBlock convert={convert} value={second} setter={setSecond} label="second"/>
+            <ConvertBlock convert={convert} value={first} setter={setFirst} label="first" currency={firstCur}/>
+            <ConvertBlock convert={convert} value={second} setter={setSecond} label="second" currency={secondCur}/>
         </div>
     )
 };
