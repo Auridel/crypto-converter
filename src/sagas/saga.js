@@ -11,7 +11,6 @@ async function fetchData() {
 
 function* getDataAsync() {
     const data = yield call(fetchData);
-    console.log(data);
     yield put(PUT_DATA(data.Data));
 }
 

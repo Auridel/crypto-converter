@@ -17,7 +17,6 @@ const ConvertBlock = ({label, value, setter, convert, currency}) => {
                 value={value}
                 onChange={(e) => {
                     if((/^$|^[\d.]+$/).test(e.target.value)) {
-                        console.log((/\d/).test(e.target.value))
                         setter(e.target.value);
                         convert(label, e.target.value);
                     }
